@@ -1,0 +1,11 @@
+{
+  "all": true,
+  "branches": 10,
+  "check-coverage": true,
+  "exclude": ["coverage", "site", "lib/*.stories.*"],
+  "functions": 10,
+  "lines": 50,
+  "per-file": false,
+  "reporter": [ "lcov", "text" ],
+  "statements": 50
+}

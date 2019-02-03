@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- 6
+- 8
+- lts/*
+- node
+matrix:
+    fast_finish: true
+    allow_failures:
+        - node_js: 6
+env:
+  global:
+    secure: JZSmrnfj3jZjmvMRVXupb3wDsc+GNDtRaBxlt75sakeZdIn/PTmhUmReKqNYFKUb/EPzHElv+7rOtGFEXlFI8s6KEPLZSOaBjPBlzEgD5EwxpLhKyXLOdvrV/1Wxyabt1utc6Ur+p98s9dqJ8Z9r3CAA4SVLd1xD0TDRb3QzexWQVWp5PrGYuWhs50+rxybldzUqPOO/CqdEgB7CmV6pgMjIy573l04qOdbY0Y38dTQxQ9AQqTltlPRoL2dUOlo31/ObN8uWY8Ui0vtzAvS4IcJBbeJgo34D8pj1MexMwFqnxZ7Ap5r0dAPf3QiDHR/rS3FcD7BJZgs0SCgbsqBjjRXlVPPq3bjis7cEi2tmlxOyXmTmcXSMbNKMkaTeokZlEycg61dXqyPWraD17a5nvIYLt2e65jtz2Mj6ZDJvBY7OpmXPOSMEzg/TZPbPuPtc4WDGGa9VRU5PeUqWOAoOo3FbHTJHUgiFDENIF3Wy/tMvfYo1GQLgBUDISPDOM5/45+QEytkwbp44NxGuOjPmq+6zcKM/8SodnB2ZHbqj9a+wiKZOC/ZWSFT9KjCErETWaeO+3LTXg8xtJjcVRRdiRwTgRLciT/pSEv8XutCMuRnV81MRBW2JNmZGHffwWVOk9DKPvx4tooQoumvXzU/0q0JAQ7tGzPBKtQedn71Te4A=
