@@ -71,6 +71,9 @@ return (
 )
 ```
 
+Promise button is backwards compatible, if your onClick handler doesn't
+return a promise, it behaves just like a normal button.
+
 ## Contribution & Feedback [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-brightgreen.svg)](https://conventionalcommits.org)
 
 Question? Bug? Feature request? Not sure? [Open an issue!](//github.com/aaronjameslang/antd-promise-button/issues/new)

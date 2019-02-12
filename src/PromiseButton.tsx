@@ -5,7 +5,7 @@ import { Status } from './Status'
 export type Props = {
   colors: Colors,
   labels?: Labels,
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => Promise<any>,
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => any | Promise<any>,
   timeout: number,
 } & ButtonProps
 
@@ -103,14 +103,17 @@ export class PromiseButton extends React.Component<Props, State> {
     if (this.isFinalised()) {
       return
     }
+    const value = this.props.onClick(event)
+    if (!value || !value.then) {
+      return value
+    }
     this.setState({
       status: Status.PENDING,
     })
-    this.props.onClick(event)
-      .then(() => {
-        this.setStatus(Status.FULFILLED)
-        this.enqueueReset()
-      })
+    value.then(() => {
+      this.setStatus(Status.FULFILLED)
+      this.enqueueReset()
+    })
       .catch(() => {
         this.setStatus(Status.REJECTED)
         this.enqueueReset()

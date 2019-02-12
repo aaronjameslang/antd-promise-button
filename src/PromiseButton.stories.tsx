@@ -7,20 +7,25 @@ import {
   text,
 } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
-import { Icon, Radio } from 'antd'
 import 'antd/lib/button/style/css'
 import Form from 'antd/lib/form'
 import 'antd/lib/form/style/css'
+import Icon from 'antd/lib/icon'
 import 'antd/lib/icon/style/css'
 import Input from 'antd/lib/input'
 import 'antd/lib/input/style/css'
-import 'antd/lib/radio/style/css'
 import React from 'react'
 import { Button } from '.'
 
 // tslint:disable:max-classes-per-file
 
 storiesOf('Promise Button', module)
+  .add('Backwards Compatible', () => {
+    const onClick = () => action('clicked')()
+    return <Button onClick={onClick}>Click Me!</Button>
+  }, {
+    notes: 'If your onClick handler doesn\'t return a promise, the button will behave like an ordinary button',
+  })
   .add('Simple', () => {
     const onClick = () => new Promise(res => setTimeout(res, 1000))
     return <Button onClick={onClick}>Click Me!</Button>
