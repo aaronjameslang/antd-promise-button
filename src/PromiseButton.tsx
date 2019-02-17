@@ -2,11 +2,15 @@ import Button, { ButtonProps } from 'antd/lib/button'
 import React from 'react'
 import { Status } from './Status'
 
-export type Props = {
-  colors: Colors,
-  labels?: Labels,
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => any | Promise<any>,
-  timeout: number,
+/**
+ * If onClick returns void, the button is in BC mode,
+ *   and you cannot specify other props.
+ */
+export type Props<T> = {
+  colors: T extends void ? undefined : Colors,
+  labels?: T extends void ? undefined : Labels,
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => T,
+  timeout: T extends void ? undefined : number,
 } & ButtonProps
 
 export interface Labels {
@@ -26,7 +30,12 @@ export interface State {
   status: Status,
 }
 
-export class PromiseButton extends React.Component<Props, State> {
+/**
+ * T here is the return type of the onClick prop
+ * Either a Promise for 'smart' functionality
+ *   or void for backwards compatibility
+ */
+export class PromiseButton<T = Promise<unknown> | void> extends React.Component<Props<T>, State> {
 
   public static readonly FULFILLED = Status.FULFILLED
   public static readonly INITIALISED = Status.INITIALISED
@@ -43,7 +52,7 @@ export class PromiseButton extends React.Component<Props, State> {
     timeout: 2000,
   }
 
-  constructor (props: Props) {
+  constructor (props: Props<T>) {
     super(props)
     this.state = { status: Status.INITIALISED }
   }
@@ -73,7 +82,7 @@ export class PromiseButton extends React.Component<Props, State> {
   }
 
   private getStyle () {
-    if (!this.isFinalised()) {
+    if (!this.isFinalised() || !this.props.colors) {
       return this.props.style
     }
     const color = this.props.colors[this.state.status]
@@ -104,16 +113,17 @@ export class PromiseButton extends React.Component<Props, State> {
       return
     }
     const value = this.props.onClick(event)
-    if (!value || !value.then) {
+    if (!value || !('then' in value)) {
       return value
     }
     this.setState({
       status: Status.PENDING,
     })
-    value.then(() => {
-      this.setStatus(Status.FULFILLED)
-      this.enqueueReset()
-    })
+   ;(value as unknown as Promise<unknown>)
+      .then(() => {
+        this.setStatus(Status.FULFILLED)
+        this.enqueueReset()
+      })
       .catch(() => {
         this.setStatus(Status.REJECTED)
         this.enqueueReset()

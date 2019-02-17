@@ -16,7 +16,7 @@ When the user clicks a promise button, a loading spinner is shown and the button
 This feedback assures the user that their action is being processed,
 and prevents accidental double-clicks and other bugs.
 
-If the action is successful, the button turns green and shows a success message. This makes the page feel more responsive while the user waits for data to load, the page to redirection or other slow processes to complete.
+If the action is successful, the button turns green and shows a success message. This makes the page feel more responsive while the user waits for data to load, the page to redirect or other slow processes to complete.
 
 If the action is unsuccessful, the button will turn red and show an error message.
 
@@ -71,8 +71,14 @@ return (
 )
 ```
 
-Promise button is backwards compatible, if your onClick handler doesn't
+### onClick
+
+The button is backwards compatible, if your onClick handler doesn't
 return a promise, it behaves just like a normal button.
+
+Remember that [you cannot return false to prevent default behavior in React](https://reactjs.org/docs/handling-events.html). So while any non-promise will work, you should only ever need to return a `Promise` or `undefined`.
+
+Currently only native promises are tested for, but any thenable should work.
 
 ## Contribution & Feedback [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-brightgreen.svg)](https://conventionalcommits.org)
 

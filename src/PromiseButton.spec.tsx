@@ -12,6 +12,14 @@ test('Backwards Compatible Button', t => {
   ).toJSON())
 })
 
+test('BC Button can\t have extra props', t => {
+  // t.snapshot(render.create(
+  //   <Button onClick={() => undefined} timeout={100}>Click Me!</Button>,
+  // ).toJSON())
+  // Doesn't compile ^
+  t.pass()
+})
+
 test('Simple Button', t => {
   t.snapshot(render.create(
     <Button onClick={success}>Click Me!</Button>,
