@@ -80,7 +80,7 @@ Remember that [you cannot return false to prevent default behavior in React](htt
 
 Currently only native promises are tested for, but any thenable should work.
 
-## Contribution & Feedback [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-brightgreen.svg)](https://conventionalcommits.org)
+## Contribution & Feedback [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-brightgreen.svg)](https://conventionalcommits.org) [![Greenkeeper badge](https://badges.greenkeeper.io/aaronjameslang/antd-promise-button.svg)](https://greenkeeper.io/)
 
 Question? Bug? Feature request? Not sure? [Open an issue!](//github.com/aaronjameslang/antd-promise-button/issues/new)
 
