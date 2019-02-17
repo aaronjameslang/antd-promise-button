@@ -14,7 +14,8 @@
   ],
   "main": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "!lib/**/*.map"
   ],
   "scripts": {
     "lint": "tslint -p . --format stylish",
