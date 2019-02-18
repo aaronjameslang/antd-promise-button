@@ -4,6 +4,7 @@
 [![Maintainability](http://api.codeclimate.com/v1/badges/7448d8dedd399ce1889b/maintainability)](//codeclimate.com/github/aaronjameslang/antd-promise-button/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7448d8dedd399ce1889b/test_coverage)](//antd-promise-button.netlify.com/coverage/lcov-report)
 [![Known Vulnerabilities](http://snyk.io/test/github/aaronjameslang/antd-promise-button/badge.svg)](//snyk.io/test/github/aaronjameslang/antd-promise-button)
+[![Greenkeeper badge](https://badges.greenkeeper.io/aaronjameslang/antd-promise-button.svg)](https://greenkeeper.io/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/deaec922-cae4-4fab-967e-c8ffd6ac037d/deploy-status)](https://app.netlify.com/sites/antd-promise-button/deploys)
 
 A Promising Button Component ([Demo](//antd-promise-button.netlify.com/storybook))
