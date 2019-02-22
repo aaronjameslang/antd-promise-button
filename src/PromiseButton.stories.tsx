@@ -17,19 +17,80 @@ import 'antd/lib/input/style/css'
 import React from 'react'
 import { Button } from '.'
 
+const delay = <T extends any> (x?: T, y?: Error) =>
+  new Promise((res, rej) => setTimeout(
+    () => {
+      if (y) rej(y)
+      else res(x)
+    },
+    Math.random() * 1000 + 1000,
+  ))
+
 // tslint:disable:max-classes-per-file
 
-storiesOf('Promise Button', module)
-  .add('Backwards Compatible', () => {
-    const onClick = () => action('clicked')()
-    return <Button onClick={onClick}>Click Me!</Button>
-  }, {
+storiesOf('Promise Button/BC Native Button', module)
+  .add('Basic', () => (
+    <Button
+      onClick={() => action('Clicked')()}
+    >Click Me!</Button>
+  ), {
     notes: 'If your onClick handler doesn\'t return a promise, the button will behave like an ordinary button',
   })
-  .add('Simple', () => {
-    const onClick = () => new Promise(res => setTimeout(res, 1000))
-    return <Button onClick={onClick}>Click Me!</Button>
-  }, {
+  .add('Submit/Reset', () => (
+    <form style={{
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
+      <label htmlFor='name'>Name (4 to 8 characters):</label>
+      <input
+        maxLength={8}
+        minLength={4}
+        name='name'
+        required
+      />
+      <Button htmlType='submit' type='primary'
+      >Submit</Button>
+      <Button htmlType='reset'>Reset</Button>
+    </form>
+  ))
+storiesOf('Promise Button/BC Anchor Button', module)
+  .add('Basic', () => (
+    <Button
+     href='//example.com'
+    >Go To Example</Button>
+  ))
+  .add('New Tab', () => (
+    <Button
+      href='//example.com'
+      target='_blank'
+    >Go To Example</Button>
+  ))
+  .add('On Click', () => (
+    <Button
+      href='//example.com'
+      onClick={() => action('Clicked')()}
+      target='_blank'
+    >Go To Example</Button>
+  ))
+  .add('Large Primary', () => (
+    <Button
+      href='//example.com'
+      size='large'
+      type='primary'
+    >Go To Example</Button>
+  ))
+storiesOf('Promise Button', module)
+  .add('Simple', () => (
+    <div>
+      <Button
+        onClick={() => delay()}
+        type='primary'
+      >Click Me!</Button>
+      <Button
+        onClick={() => delay()}
+      >No, Click Me!</Button>
+    </div>
+  ), {
     notes: 'The only requirement is that your onClick returns a promise. We\'ll do the rest!',
   })
   .add('Login Form', () => {

@@ -9,7 +9,7 @@ import { Status } from './Status'
 export type Props<T> = {
   colors: T extends void ? undefined : Colors,
   labels?: T extends void ? undefined : Labels,
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => T,
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => T,
   timeout: T extends void ? undefined : number,
 } & ButtonProps
 
@@ -109,7 +109,7 @@ export class PromiseButton<T = Promise<unknown> | void> extends React.Component<
   }
 
   private onClick (event: React.MouseEvent<HTMLButtonElement>) {
-    if (this.isFinalised()) {
+    if (this.isFinalised() || ! this.props.onClick) {
       return
     }
     const value = this.props.onClick(event)
