@@ -45,7 +45,7 @@
     "@types/storybook__addon-knobs": "^4.0.1",
     "@types/storybook__react": "^4.0.1",
     "antd": "^3.13.5",
-    "ava": "^1.2.1",
+    "ava": "^1.4.0",
     "babel-core": "^6.26.3",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
