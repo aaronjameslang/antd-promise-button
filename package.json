@@ -31,7 +31,7 @@
     "react-dom": "*"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^4.1.13",
+    "@storybook/addon-actions": "^5.0.9",
     "@storybook/addon-centered": "^4.1.13",
     "@storybook/addon-knobs": "^4.1.13",
     "@storybook/addon-notes": "^4.1.13",
