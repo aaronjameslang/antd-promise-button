@@ -55,7 +55,7 @@
     "react-dom": "^16.8.3",
     "react-scripts": "^2.1.5",
     "react-test-renderer": "^16.8.3",
-    "terser": "^3.16.1",
+    "terser": "^4.0.0",
     "tslint": "^5.12.1",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.14.2",
